@@ -2,14 +2,14 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from authlib.integrations.flask_client import OAuth
 
 app = Flask(__name__)
-app.secret_key = 'buraya_istediyin_gizli_bir_soz_yaz'  # Sessiyanı işlətmək üçün vacibdir
+app.secret_key = 'Hİ'  # Sessiyanı işlətmək üçün vacibdir
 
 # Google OAuth tənzimləmələri
 oauth = OAuth(app)
 google = oauth.register(
     name='google',
-    client_id='BURI_GOOGLE_DAN_ALDIGIN_CLIENT_ID_YAZ',
-    client_secret='BURI_GOOGLE_DAN_ALDIGIN_CLIENT_SECRET_YAZ',
+    client_id='152148942306-feuvoacf1khp6krf6chp3c13opq2pi6q.apps.googleusercontent.com',
+    client_secret='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',
     server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
     client_kwargs={
         'scope': 'openid email profile'
