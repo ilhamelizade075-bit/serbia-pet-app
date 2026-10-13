@@ -30,10 +30,9 @@ pets_list = [
 def index():
     return render_template('index.html', pets=pets_list)
 
-# Yeni oglas əlavə etmə route-u
 @app.route('/add', methods=['POST'])
 def add_pet():
-    new_id = len(pets_list) + 1
+    new_id = len(pets_list) + 1 if not pets_list else pets_list[-1]['id'] + 1
     name = request.form.get('name')
     pet_type = request.form.get('type')
     breed = request.form.get('breed')
@@ -59,7 +58,6 @@ def add_pet():
     pets_list.append(new_pet)
     return redirect(url_for('index'))
 
-# Oqlası silmə route-u
 @app.route('/delete/<int:pet_id>', methods=['POST'])
 def delete_pet(pet_id):
     global pets_list
