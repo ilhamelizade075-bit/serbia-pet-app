@@ -30,7 +30,7 @@ google = oauth.register(
     }
 )
 
-# İlkin olaraq elanlar siyahısı tamamilə BOŞdur
+# İlkin olaraq elanlar siyahısı BOŞdur
 pets_list = []
 
 @app.route('/')
@@ -57,7 +57,6 @@ def logout():
 
 @app.route('/add', methods=['POST'])
 def add_pet():
-    # İstəsəniz buraya giriş şərti də qoya bilərsiniz
     new_id = len(pets_list) + 1 if not pets_list else pets_list[-1]['id'] + 1
     
     name = request.form.get('name')
