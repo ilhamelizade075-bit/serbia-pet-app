@@ -7,34 +7,31 @@
     <!-- Bootstrap CSS Dizayn Linki -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Cəlbedici Arxa Fon üçün Xüsusi CSS -->
+    <!-- Cəlbedici Arxa Fon və Dizayn Üçün CSS -->
     <style>
         body {
-            /* Əsas fon rəngi (əvvəlki kimi açıq firuzəyi) */
             background-color: #f0fdfa;
-            
-            /* Arxa fon naxışı - Sevimli pəncə və heyvan cizgiləri */
-            /* Bu şəkil şəffafdır və təkrarlanaraq bütün fonu örtür */
             background-image: url('https://www.transparenttextures.com/patterns/paw-print.png');
-            
-            /* Naxışın sıxlığını və təkrarlanmasını tənzimləyirik */
             background-repeat: repeat;
-            background-attachment: fixed; /* Səhifəni aşağı çəkəndə fon sabit qalır */
+            background-attachment: fixed;
         }
 
-        /* Navigasiya panelini bir az daha fərqli edək */
         .navbar {
             background: linear-gradient(135deg, #212529 0%, #343a40 100%) !important;
-            border-bottom: 2px solid #14b8a6; /* Alt hissəyə xətt */
+            border-bottom: 2px solid #14b8a6;
         }
 
-        /* Elan kartlarına yüngül effekt verək */
         .card {
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
         .card:hover {
-            transform: translateY(-5px); /* Siçan üzərinə gələndə yuxarı qalxır */
+            transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+
+        /* Hero Banner Üzərindəki Mətnin Kölgəsi */
+        .hero-text {
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
         }
     </style>
 </head>
@@ -55,10 +52,19 @@
         </div>
     </nav>
 
-    <div class="container my-5">
-        <h1 class="text-center mb-5 text-primary fw-bold" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">Pronađite svog novog prijatelja</h1>
+    <!-- Hero Banner: İtlər və pişiklər bir yerdə oynayarkən cəlbedici şəkil -->
+    <div class="container my-4">
+        <div class="card bg-dark text-white border-0 rounded-4 overflow-hidden shadow-lg position-relative">
+            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop" class="card-img" alt="Srećni ljubimci" style="height: 320px; object-fit: cover; opacity: 0.65;">
+            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center text-center p-4">
+                <h1 class="card-title fw-bold display-5 text-white hero-text mb-2">Pronađite svog novog prijatelja</h1>
+                <p class="card-text fs-5 text-light hero-text">Udomite ljubimca i pružite mu dom pun ljubavi širom Srbije.</p>
+            </div>
+        </div>
+    </div>
 
-        <!-- Yeni Oglas Əlavə Etmə Forması (Daha parlaq və cəlbedici) -->
+    <div class="container mb-5">
+        <!-- Yeni Oglas Əlavə Etmə Forması -->
         <div class="card shadow-sm mb-5 p-4 border-0 rounded-4 bg-white" style="border-top: 4px solid #14b8a6 !important;">
             <h3 class="mb-4 text-secondary fw-bold text-center">Dodaj novi oglas za ljubimca</h3>
             <form action="/add" method="POST" enctype="multipart/form-data" class="row g-3">
@@ -124,13 +130,12 @@
                 <div class="col-12 text-center py-5 card shadow-sm rounded-4 bg-white border-0">
                     <p class="text-muted fs-5">Trenutno nema aktivnih oglasa.</p>
                     <p class="text-muted">Budite prvi koji će dodati oglas!</p>
-                    <img src="https://images.unsplash.com/photo-1599114131346-a4c3214da310?q=80&w=300&auto=format&fit=crop" class="mt-4 rounded-circle opacity-50" style="width: 150px;" alt="Empty state">
                 </div>
             {% endif %}
         </div>
     </div>
 
-    <!-- Bootstrap JS (lazım olsa deyə) -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
